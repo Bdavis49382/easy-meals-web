@@ -40,7 +40,7 @@
     <div class="items-center flex flex-col pb-10">
         <p class="pt-8 pb-2 text-lg">Install App Here</p>
         <a href={import.meta.env.VITE_INSTALL_LINK} class="bg-slate-300 rounded-2xl">
-            <img src="/src/assets/SmallLogo.png" alt="app logo" class="max-w-20 p-2">
+            <img src="/SmallLogo.png" alt="app logo" class="max-w-20 p-2">
         </a>
     </div>
     <section>

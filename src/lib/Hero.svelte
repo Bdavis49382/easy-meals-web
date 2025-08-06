@@ -7,7 +7,7 @@
     <p class="text-lg text-gray-600 mb-8">
         Easy Meals simplifies-not complicates. Make cooking for yourself a reality!
     </p>
-    <img src="/src/assets/Preview.png" alt="Easy Meals App Preview" class="mx-auto mb-8 rounded-lg shadow-lg w-2xs" />
+    <img src="/Preview.png" alt="Easy Meals App Preview" class="mx-auto mb-8 rounded-lg shadow-lg w-2xs" />
     <Link to="/join" class="inline-block bg-green-600 text-white text-lg font-semibold px-6 py-3 rounded hover:bg-green-700 transition">
         Become a Beta Tester
     </Link>

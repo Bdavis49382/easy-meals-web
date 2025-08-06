@@ -16,15 +16,15 @@
     <section class="md:columns-3">
         <div class="items-center flex flex-col">
             <p class="pt-8 text-lg">Gain immediate access to the app.</p>
-            <img src="/src/assets/SmallLogo.png" alt="app logo" class="max-w-20 pt-2">
+            <img src="/SmallLogo.png" alt="app logo" class="max-w-20 pt-2">
         </div>
         <div class="items-center flex flex-col">
             <p class="pt-8">Join the community of beta testers.</p>
-            <img src="/src/assets/Community.png" alt="community icon" class="max-w-20 pt-2">
+            <img src="/Community.png" alt="community icon" class="max-w-20 pt-2">
         </div>
         <div class="items-center flex flex-col">
             <p class="pt-8">Recieve emails when new versions and patches come out.</p>
-            <img src="/src/assets/mail.png" alt="mail icon" class="max-w-20 pt-2">
+            <img src="/mail.png" alt="mail icon" class="max-w-20 pt-2">
         </div>
     </section>
 
