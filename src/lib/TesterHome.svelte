@@ -8,11 +8,15 @@
     let adding = $state(false);
     let editingId = $state("");
     let title = $state("");
+    let status = $state("Unresolved");
     let description = $state("");
-    onMount(async () => issues = getIssues());
+    function loadIssues() {
+        issues = getIssues()
+    }
+    onMount(loadIssues);
     async function onSubmit() {
         if (editingId != "") {
-            await updateIssue(editingId, title, description)
+            await updateIssue(editingId, title, description,status)
             editingId = "";
         } else {
             await addIssue({title,text:description,poster:user.email});
@@ -50,17 +54,25 @@
                 <label for="title">Title</label>
                 <input type="text" name="title" id="title" bind:value={title} class="bg-slate-200 rounded-sm">
                 <label for="description" class="block">Description</label>
+                {#if editingId != ""}
+                    <label for="status">Status</label>
+                    <select name="status" bind:value={status}>
+                        <option value="Unresolved">Unresolved</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Resolved">Resolved</option>
+                    </select>
+                {/if}
                 <textarea name="description" id="description" bind:value={description} class="bg-slate-200 rounded-sm block" rows="3" cols="40"></textarea>
             </form>
             <button class="inline-block bg-green-600 text-white ms-5 text-sm font-semibold px-3 py-1 rounded hover:bg-green-700 transition" onclick={onSubmit}>Submit</button>
         {/if}
         {#await issues}
-            <Issue title="loading" poster="loading" text="loading" status="loading" id=""/>
-            <Issue title="loading" poster="loading" text="loading" status="loading" id=""/>
+            <Issue title="loading" poster="loading" text="loading" status="loading" id="" loadIssues={() => {}}/>
+            <Issue title="loading" poster="loading" text="loading" status="loading" id="" loadIssues={() => {}}/>
         {:then issuesAwaited} 
             {#if issuesAwaited != undefined}
                 {#each issuesAwaited.sort(compareIssues) as issue}
-                    <Issue title={issue.title} poster={issue.poster} text={issue.text} status={issue.status} id={issue.id} bind:editingId bind:editingText={description} bind:editingTitle={title}/>
+                    <Issue title={issue.title} poster={issue.poster} text={issue.text} status={issue.status} id={issue.id} bind:editingId bind:editingText={description} bind:editingTitle={title} bind:editingStatus={status} loadIssues={loadIssues}/>
                 {/each}
             {/if}
         {/await}

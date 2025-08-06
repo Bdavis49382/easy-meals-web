@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, collection, doc, getDocs, addDoc, serverTimestamp, updateDoc } from "firebase/firestore";
+import { getFirestore, collection, doc, getDocs, addDoc, deleteDoc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { user } from "./stores.svelte";
 
 
@@ -48,8 +48,12 @@ export async function addIssue(issue) {
     await addDoc(collection(db,'issues'), {...issue, status:'Unresolved', createdAt: serverTimestamp()})
 }
 
-export async function updateIssue(id, title, text) {
-    await updateDoc(doc(db, 'issues',id),{title,text});
+export async function updateIssue(id, title, text, status) {
+    await updateDoc(doc(db, 'issues',id),{title,text, status});
+}
+
+export async function deleteIssue(id) {
+    await deleteDoc(doc(db, 'issues', id));
 }
 
 
