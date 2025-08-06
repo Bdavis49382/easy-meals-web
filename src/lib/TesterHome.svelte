@@ -4,7 +4,6 @@
     
     import { onMount} from 'svelte';
     import Issue from "./Issue.svelte"
-  import { installLink } from "../../firebaseConfig";
     let issues = $state();
     let adding = $state(false);
     let editingId = $state("");
@@ -40,7 +39,7 @@
     <h1 class="text-4xl">Welcome {user.name}!</h1>
     <div class="items-center flex flex-col pb-10">
         <p class="pt-8 pb-2 text-lg">Install App Here</p>
-        <a href={installLink} class="bg-slate-300 rounded-2xl">
+        <a href={import.meta.env.VITE_INSTALL_LINK} class="bg-slate-300 rounded-2xl">
             <img src="/src/assets/SmallLogo.png" alt="app logo" class="max-w-20 p-2">
         </a>
     </div>

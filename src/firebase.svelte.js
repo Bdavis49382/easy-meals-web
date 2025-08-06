@@ -2,9 +2,16 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, doc, getDocs, addDoc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { user } from "./stores.svelte";
-import { firebaseConfig } from "../firebaseConfig";
 
 
+const firebaseConfig = {
+    apiKey: import.meta.env.VITE_APIKEY,
+    authDomain: import.meta.env.VITE_AUTHDOMAIN,
+    projectId: import.meta.env.VITE_PROJECTID,
+    storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+    appId: import.meta.env.VITE_APPID
+};
 
 
 // Initialize Firebase
