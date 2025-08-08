@@ -5,6 +5,7 @@
   import { Router, Link, Route} from "svelte-routing";
   import { user } from "./stores.svelte";
   import Join from "./lib/Join.svelte";
+  import ChangeLog from "./lib/ChangeLog.svelte";
   export let url = "";
 </script>
 
@@ -13,6 +14,9 @@
     <Header />
     <Route path="/join">
       <Join />
+    </Route>
+    <Route path="change-log">
+      <ChangeLog />
     </Route>
     <Route path="/">
       <Welcome />

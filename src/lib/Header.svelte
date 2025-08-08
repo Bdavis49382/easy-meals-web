@@ -18,8 +18,11 @@
     </Link>
     <nav>
     {#if user.isLoggedIn}
-        <Link to="/tester">
+        <Link to="/tester" class="mx-2">
             Home
+        </Link>
+        <Link to="/change-log" class="mx-2">
+            Change Log
         </Link>
         <button class="text-gray-600 hover:text-green-600 mx-2 cursor-pointer" onclick={logout}>Log Out</button>
     {:else}

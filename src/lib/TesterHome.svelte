@@ -1,9 +1,9 @@
 <script>
     import { user } from "../stores.svelte";
     import {getIssues, addIssue, updateIssue} from "../firebase.svelte";
-    
     import { onMount} from 'svelte';
     import Issue from "./Issue.svelte"
+    
     let issues = $state();
     let adding = $state(false);
     let editingId = $state("");
@@ -53,15 +53,17 @@
             <form action="/" class="text-left">
                 <label for="title">Title</label>
                 <input type="text" name="title" id="title" bind:value={title} class="bg-slate-200 rounded-sm">
-                <label for="description" class="block">Description</label>
                 {#if editingId != ""}
-                    <label for="status">Status</label>
-                    <select name="status" bind:value={status}>
-                        <option value="Unresolved">Unresolved</option>
-                        <option value="In Progress">In Progress</option>
-                        <option value="Resolved">Resolved</option>
-                    </select>
+                    <label for="status" class="block">Status
+                        <select name="status" bind:value={status}>
+                            <option value="Unresolved">Unresolved</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                        </select>
+
+                    </label>
                 {/if}
+                <label for="description" class="block">Description</label>
                 <textarea name="description" id="description" bind:value={description} class="bg-slate-200 rounded-sm block" rows="3" cols="40"></textarea>
             </form>
             <button class="inline-block bg-green-600 text-white ms-5 text-sm font-semibold px-3 py-1 rounded hover:bg-green-700 transition" onclick={onSubmit}>Submit</button>

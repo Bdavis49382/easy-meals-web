@@ -36,12 +36,23 @@ export async function signUserOut() {
 }
 
 export async function getIssues() {
-    const querySnapshot = await getDocs(collection(db, "issues"));
-    const issues = []
+    return getCollection("issues");
+}
+async function getCollection(name) {
+    const querySnapshot = await getDocs(collection(db, name));
+    const items = []
     querySnapshot.forEach((doc) => {
-        issues.push({...doc.data(), id:doc.id});
+        items.push({...doc.data(), id:doc.id});
     });
-    return issues;
+    return items;
+}
+
+export async function getVersions() {
+    return getCollection("versions");
+}
+
+export async function addVersion(versionNumber, entry) {
+    await addDoc(collection(db, "versions"), {versionNumber, entry})
 }
 
 export async function addIssue(issue) {
