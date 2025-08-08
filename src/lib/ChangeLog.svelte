@@ -30,7 +30,10 @@
     {#each versionsAwaited as version}
         <section class="text-left">
             <h1 class="text-2xl">{version.versionNumber}</h1>
-            <p>{version.entry}</p>
+            {#each version.entry.split("\n") as line}
+                <p>{line}</p>
+                
+            {/each}
         </section>
     {/each}
         
