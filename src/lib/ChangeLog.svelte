@@ -11,6 +11,11 @@
         versionNumber = "";
         versions = getVersions();
     }
+    function compareVersions(a, b) {
+        let aNum = Number(a.versionNumber[a.versionNumber.length - 1])
+        let bNum = Number(b.versionNumber[b.versionNumber.length - 1])
+        return bNum - aNum
+    }
     onMount(() => versions = getVersions())
 </script>
 <main class="mx-auto text-center max-w-3xl">
@@ -27,15 +32,17 @@
     {#await versions}
         <p>loading...</p>
     {:then versionsAwaited} 
-    {#each versionsAwaited as version}
-        <section class="text-left">
-            <h1 class="text-2xl">{version.versionNumber}</h1>
-            {#each version.entry.split("\n") as line}
-                <p>{line}</p>
-                
-            {/each}
-        </section>
-    {/each}
+    {#if versionsAwaited != undefined}
+        {#each versionsAwaited.sort(compareVersions) as version}
+            <section class="text-left">
+                <h1 class="text-2xl">{version.versionNumber}</h1>
+                {#each version.entry.split("\n") as line}
+                    <p>{line}</p>
+                    
+                {/each}
+            </section>
+        {/each}
+    {/if}
         
     {/await}
 </main>
