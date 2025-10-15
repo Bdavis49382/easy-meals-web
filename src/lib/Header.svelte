@@ -17,6 +17,9 @@
         <h1 class="text-2xl font-bold text-green-600">Easy Meals</h1>
     </Link>
     <nav>
+        <Link to="/contact" class="mx-2">
+            Contact Us
+        </Link>
     {#if user.isLoggedIn}
         <Link to="/tester" class="mx-2">
             Home

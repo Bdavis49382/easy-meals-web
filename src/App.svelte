@@ -6,6 +6,7 @@
   import { user } from "./stores.svelte";
   import Join from "./lib/Join.svelte";
   import ChangeLog from "./lib/ChangeLog.svelte";
+  import Contact from "./lib/Contact.svelte";
   export let url = "";
 </script>
 
@@ -14,6 +15,9 @@
     <Header />
     <Route path="/join">
       <Join />
+    </Route>
+    <Route path="/contact">
+      <Contact />
     </Route>
     <Route path="change-log">
       <ChangeLog />
