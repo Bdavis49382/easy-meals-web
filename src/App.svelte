@@ -7,6 +7,7 @@
   import Join from "./lib/Join.svelte";
   import ChangeLog from "./lib/ChangeLog.svelte";
   import Contact from "./lib/Contact.svelte";
+  import Privacy from "./lib/Privacy.svelte";
   export let url = "";
 </script>
 
@@ -18,6 +19,9 @@
     </Route>
     <Route path="/contact">
       <Contact />
+    </Route>
+    <Route path="/privacy">
+      <Privacy />
     </Route>
     <Route path="change-log">
       <ChangeLog />

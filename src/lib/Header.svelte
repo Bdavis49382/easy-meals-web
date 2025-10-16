@@ -20,6 +20,9 @@
         <Link to="/contact" class="mx-2">
             Contact Us
         </Link>
+        <Link to="/privacy" class="mx-2">
+            Privacy Policy
+        </Link>
     {#if user.isLoggedIn}
         <Link to="/tester" class="mx-2">
             Home
